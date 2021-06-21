@@ -1,6 +1,7 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "lint": "eslint --cache --fix --format codeframe --ext .js .",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -8,15 +9,33 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "expo": "~41.0.1",
     "expo-status-bar": "~1.0.4",
+    "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
-    "react-native-web": "~0.13.12"
+    "react-native-elements": "^3.4.2",
+    "react-native-loading-spinner-overlay": "^2.0.0",
+    "react-native-sticky-header-footer-scroll-view": "^2.1.3",
+    "react-native-web": "~0.13.12",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-config-react-native": "^4.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-native": "^3.10.0",
+    "prettier": "^2.2.1"
   },
   "private": true
 }
