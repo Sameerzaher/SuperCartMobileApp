@@ -1,37 +1,39 @@
-import {getProductsBuyBarcode} from "../superCartSevice";
-import {ADD_ITEM, SET_LIST} from "../types";
-import {getGroceryList} from "../storage";
+import { getProductsBuyBarcode } from '../superCartSevice';
+import { ADD_ITEM, SET_LIST } from '../types';
+import { getGroceryList } from '../storage';
 
-export const initiateListFromStorage = () => dispatch => {
-  getGroceryList().then(list => {
-    dispatch({
-      type: SET_LIST,
-      payload: list
+export const initiateListFromStorage = () => (dispatch) => {
+  getGroceryList()
+    .then((list) => {
+      dispatch({
+        type: SET_LIST,
+        payload: list,
+      });
     })
-  }).catch(e => console.log('error in initiateListFromStorage', e))
+    .catch((e) => console.log('error in initiateListFromStorage', e));
 };
 
-export const addItem = (barcode) => dispatch => {
+export const addItem = (barcode) => (dispatch) => {
   getProductsBuyBarcode([barcode])
-    .then(response => {
-      const item = response?.data?.data?.[0]
+    .then((response) => {
+      const item = response?.data?.data?.[0];
       if (item) {
-        console.log('inside if')
+        console.log('inside if');
         dispatch({
           type: ADD_ITEM,
-          payload:{
+          payload: {
             id: item.product_barcode,
-            item
-          }
-        })
+            item,
+          },
+        });
       }
     })
-    .catch(e => console.log('error inside add item', e))
+    .catch((e) => console.log('error inside add item', e));
 };
 
-export const removeItem = (id) => dispatch => {
+export const removeItem = (id) => (dispatch) => {
   // todo implement
 };
-export const dropList = () => dispatch => {
+export const dropList = () => (dispatch) => {
   // todo implement
 };

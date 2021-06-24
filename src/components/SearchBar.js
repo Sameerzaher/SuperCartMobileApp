@@ -6,19 +6,19 @@ function SearchBar({ onSubmit }) {
   const [fieldVal, setFieldVal] = useState('');
   return (
     <View style={styles.wrapper}>
-        <TextInput
-          style={styles.textInput}
-          value={fieldVal}
-          keyboardType="numeric"
-          clearButtonMode="while-editing"
-          onChangeText={(e) => {
-            setFieldVal(e);
-          }}
-          onSubmitEditing={() => {
-            onSubmit(fieldVal);
-            setFieldVal('');
-          }}
-        />
+      <TextInput
+        style={styles.textInput}
+        value={fieldVal}
+        keyboardType="numeric"
+        clearButtonMode="while-editing"
+        onChangeText={(e) => {
+          setFieldVal(e);
+        }}
+        onSubmitEditing={() => {
+          onSubmit(fieldVal);
+          setFieldVal('');
+        }}
+      />
     </View>
   );
 }
@@ -37,9 +37,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     height: 50,
   },
-  barcode: {
-    margin: 10
-  }
 });
 
 export default SearchBar;

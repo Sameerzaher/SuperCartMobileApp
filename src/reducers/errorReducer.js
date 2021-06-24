@@ -1,4 +1,4 @@
-import {DISMISS_ERROR, SET_ERROR} from "../types";
+import { DISMISS_ERROR, SET_ERROR } from '../types';
 
 const initialState = {
   message: '',
@@ -11,15 +11,16 @@ export default (state = initialState, action) => {
       newState = {
         ...state,
         message: action.payload,
-      }
+      };
       break;
     case DISMISS_ERROR:
       newState = {
         ...state,
         message: '',
-      }
+      };
       break;
     default:
-      return state;
+      newState = state;
   }
+  return newState;
 };

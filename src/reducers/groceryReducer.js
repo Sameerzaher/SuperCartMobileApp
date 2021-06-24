@@ -1,31 +1,30 @@
-import {ADD_ITEM, DROP_LIST, REMOVE_ITEM, SET_LIST} from "../types";
-import { storeGroceryList } from '../storage'
+import { ADD_ITEM, DROP_LIST, REMOVE_ITEM, SET_LIST } from '../types';
+import { storeGroceryList } from '../storage';
 
 const initialState = [];
 
 export default (state = initialState, action) => {
-  let newState
+  let newState;
   switch (action.type) {
-    case  SET_LIST:
-      newState = action.payload
+    case SET_LIST:
+      newState = action.payload;
       break;
     case ADD_ITEM:
-      const isExist = state.find(el => el.id === action.payload.id)
-      newState = [...state]
-      if (!isExist){
-        newState.push(action.payload)
+      newState = [...state];
+      if (!state.find((el) => el.id === action.payload.id)) {
+        newState.push(action.payload);
       }
       break;
     case REMOVE_ITEM:
-      newState = state.filter(element => element.id !== action.payload.id);
+      newState = state.filter((element) => element.id !== action.payload.id);
       break;
     case DROP_LIST:
-      newState = []
+      newState = [];
       break;
     default:
-      newState = state
+      newState = state;
   }
-  console.log('__state', action.type, newState)
-  storeGroceryList(newState)
-  return newState
-}
+  console.log('__state', action.type, newState);
+  storeGroceryList(newState);
+  return newState;
+};
