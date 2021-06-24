@@ -6,6 +6,7 @@ export const setGroceryError = (errorMsg) => dispatch => {
     payload: errorMsg,
   })
 };
+
 export const dismissGroceryError = (errorMsg) => dispatch => {
   dispatch({
     type: DISMISS_ERROR,
