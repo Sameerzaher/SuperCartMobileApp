@@ -10,8 +10,11 @@ export default (state = initialState, action) => {
       newState = action.payload
       break;
     case ADD_ITEM:
+      const isExist = state.find(el => el.id === action.payload.id)
       newState = [...state]
-      newState.push(action.payload)
+      if (!isExist){
+        newState.push(action.payload)
+      }
       break;
     case REMOVE_ITEM:
       newState = state.filter(element => element.id !== action.payload.id);

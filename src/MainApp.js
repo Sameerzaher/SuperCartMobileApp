@@ -6,12 +6,15 @@ import {StatusBar} from "expo-status-bar";
 import StickyHeaderFooterScrollView from 'react-native-sticky-header-footer-scroll-view';
 import Main from "./components/Main";
 import { initiateListFromStorage } from "./actions/groceryActions";
+import {storeGroceryList} from "./storage";
 
 
-function MainApp({initiateListFromStorage}) {
+function MainApp({initiateListFromStorage, list}) {
   useEffect(() => {
     initiateListFromStorage()
-    console.log('did mount')
+    return () => {
+      storeGroceryList(list)
+    }
   }, [])
   return <StickyHeaderFooterScrollView
     renderStickyHeader={() => (
@@ -21,7 +24,7 @@ function MainApp({initiateListFromStorage}) {
     )}
     renderStickyFooter={() => (
       <Button
-        title={true ? 'Back to track List' : 'Recent Queries'}
+        title={'Compare Prices'}
         onPress={() => {
           console.log('pressed');
         }}
@@ -49,11 +52,12 @@ const styles = StyleSheet.create({
 });
 
 MainApp.propTypes = {
-
+  list: PropTypes.array.isRequired,
 }
 
 export default connect(
   (state) => ({
+    list: state.groceryList
   }),
   {initiateListFromStorage},
 )(MainApp);
