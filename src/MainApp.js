@@ -18,7 +18,7 @@ function MainApp({ initiateListFromStorage, list }) {
     <StickyHeaderFooterScrollView
       renderStickyHeader={() => (
         <View style={styles.header}>
-          <Text style={styles.headerText}>Sound Cloud Player</Text>
+          <Text style={styles.headerText}>SuperCart</Text>
         </View>
       )}
       renderStickyFooter={() => (
